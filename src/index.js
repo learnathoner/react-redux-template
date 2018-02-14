@@ -10,18 +10,16 @@ import { BrowserRouter } from "react-router-dom";
 // Middlware imports
 import { Provider } from "react-redux";
 import thunkMiddleWare from "redux-thunk";
-import { createLogger } from "redux-logger";
 
 // REDUX Devtools plugin for chrome
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// LoggerMiddleWare - Logs all actions
-const loggerMiddleWare = createLogger();
+
 
 const store = createStore(
   rootReducer,
   /* preloadedState, */
   /* Use composeEhancers to add redux devtools */
-  composeEnhancers(applyMiddleware(thunkMiddleWare, loggerMiddleWare))
+  composeEnhancers(applyMiddleware(thunkMiddleWare))
 );
 
 // // Initialize store?
